@@ -1,141 +1,371 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إلى شهد ❤️</title>
+    <title>For Dody ❤️</title>
+    <!-- استيراد الخطوط الإيطالية والرومانسية الأنيقة -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background: linear-gradient(135deg, #ffebee, #fce4ec); min-height: 100vh; display: flex; justify-content: center; align-items: center; overflow-x: hidden; position: relative; }
-        
-        .heart-falling { position: fixed; top: -10vh; font-size: 20px; color: #f48fb1; user-select: none; pointer-events: none; z-index: 1; animation: fall linear infinite; }
-        @keyframes fall { 0% { transform: translateY(0) rotate(0deg); opacity: 1; } 100% { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-        .container { position: relative; z-index: 10; width: 90%; max-width: 450px; margin: 20px auto; }
+        body {
+            background: linear-gradient(135deg, #ffc0cb, #ff69b4, #db7093);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            font-family: 'Playfair Display', italic, serif;
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
 
-        #lock-screen { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); padding: 35px 25px; border-radius: 24px; box-shadow: 0 15px 35px rgba(244, 143, 177, 0.3); text-align: center; border: 2px solid #f8bbd0; }
-        .lock-icon { font-size: 55px; margin-bottom: 20px; display: inline-block; animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
-        h2 { color: #c2185b; font-size: 20px; margin-bottom: 25px; line-height: 1.6; }
-        input[type="password"] { width: 100%; padding: 14px 20px; border: 2px solid #f8bbd0; border-radius: 30px; outline: none; font-size: 20px; text-align: center; margin-bottom: 25px; color: #c2185b; background: #fff5f8; }
-        
-        .btn-main { background: linear-gradient(45deg, #e91e63, #ff4081); color: white; border: none; padding: 14px 30px; border-radius: 30px; font-size: 18px; font-weight: bold; cursor: pointer; box-shadow: 0 5px 20px rgba(233, 30, 99, 0.3); width: 100%; transition: 0.3s; }
-        .btn-main:hover { transform: translateY(-2px); box-shadow: 0 7px 25px rgba(233, 30, 99, 0.5); }
-        .error-msg { color: #d32f2f; margin-top: 15px; display: none; font-size: 15px; font-weight: bold; }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-        #main-content { display: none; width: 100%; }
-        .welcome-card { background: rgba(255, 255, 255, 0.9); padding: 30px 20px; border-radius: 24px; margin-bottom: 25px; box-shadow: 0 10px 25px rgba(244, 143, 177, 0.15); border: 1px solid #f8bbd0; text-align: center; }
-        .welcome-card h1 { color: #c2185b; margin-bottom: 15px; font-size: 24px; }
-        .welcome-card p { color: #880e4f; font-size: 16px; line-height: 1.7; }
+        /* خلفية متحركة لحروف J والقلوب */
+        .bg-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
 
-        .section-header { color: #c2185b; font-size: 18px; font-weight: bold; margin: 20px 0 10px 0; text-align: right; padding-right: 10px; }
-        .memory-card { background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 12px 30px rgba(0,0,0,0.08); margin-bottom: 30px; border: 1px solid #f8bbd0; text-align: center; padding: 10px; }
-        .memory-card img { width: 100%; max-height: 500px; object-fit: contain; border-radius: 16px; display: block; margin: 0 auto; }
+        .particle {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 18px;
+            animation: floatUp 8s linear infinite;
+            white-space: nowrap;
+        }
 
-        .music-card { background: linear-gradient(135deg, #fce4ec, #f8bbd0); border-radius: 24px; padding: 25px 20px; margin-bottom: 30px; box-shadow: 0 12px 30px rgba(233, 30, 99, 0.15); border: 1px solid #f48fb1; text-align: center; }
-        .music-info { color: #c2185b; font-size: 16px; font-weight: bold; margin-bottom: 15px; }
-        audio { width: 100%; border-radius: 30px; }
+        @keyframes floatUp {
+            0% {
+                transform: translateY(105vh) scale(0.8);
+                opacity: 0;
+            }
+            20% { opacity: 0.8; }
+            80% { opacity: 0.8; }
+            100% {
+                transform: translateY(-10vh) scale(1.2);
+                opacity: 0;
+            }
+        }
 
-        .heart-btn-container { margin: 40px 0; text-align: center; }
+        /* حاوية الصفحات وتأثير قلب الورقة (Page Flip) */
+        .container {
+            position: relative;
+            z-index: 10;
+            width: 90%;
+            max-width: 600px;
+            min-height: 520px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 25px;
+            padding: 40px 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.8s ease, opacity 0.8s ease;
+            transform-style: preserve-3d;
+        }
 
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(136, 14, 79, 0.4); backdrop-filter: blur(8px); z-index: 100; justify-content: center; align-items: center; padding: 20px; }
-        .modal-content { background: white; padding: 35px 25px; border-radius: 24px; max-width: 400px; width: 100%; text-align: center; border: 3px solid #f48fb1; box-shadow: 0 20px 50px rgba(0,0,0,0.2); position: relative; animation: scaleUp 0.4s ease; }
-        @keyframes scaleUp { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-        
-        .modal-text { color: #4a148c; font-size: 17px; line-height: 1.8; margin-bottom: 25px; text-align: justify; }
-        .glowing-love { font-size: 32px; font-weight: bold; color: #ff1744; text-shadow: 0 0 10px #ff4081, 0 0 20px #ff4081; margin-bottom: 25px; animation: glitter 1.5s infinite alternate; display: block; }
-        @keyframes glitter { from { text-shadow: 0 0 10px #ff4081, 0 0 20px #ff80ab; transform: scale(1); } to { text-shadow: 0 0 20px #ff1744, 0 0 40px #ff4081; transform: scale(1.05); } }
+        .page {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 1s ease;
+        }
 
-        .close-btn { background: #c2185b; color: white; border: none; padding: 10px 25px; border-radius: 20px; cursor: pointer; font-weight: bold; }
+        .page.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* تنسيق النصوص والفونتات */
+        .shiny-text {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #fff, #ffe6e6, #ffb6c1, #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #fce4ec;
+            margin-bottom: 25px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* الحقول والأنبوتات والأزرار */
+        input[type="password"] {
+            width: 80%;
+            max-width: 300px;
+            padding: 12px 20px;
+            border-radius: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 1.1rem;
+            text-align: center;
+            outline: none;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        input[type="password"]::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 20, 147, 0.6);
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+        }
+
+        .error-msg {
+            color: #ffebee;
+            font-size: 0.95rem;
+            margin-top: 10px;
+            font-weight: bold;
+            display: none;
+        }
+
+        /* إطارات الذكريات والرسائل */
+        .frame-box {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            padding: 18px 20px;
+            margin: 10px 0;
+            width: 100%;
+            box-shadow: inset 0 2px 5px rgba(255,255,255,0.1);
+        }
+
+        .frame-box p {
+            font-size: 1.05rem;
+            font-style: italic;
+            color: #fff;
+            line-height: 1.6;
+            text-align: right;
+        }
+
+        .memory-img {
+            width: 100%;
+            max-height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            margin-top: 10px;
+        }
+
+        /* تحسين التمرير داخل الصفحات لو الطول زاد */
+        .scrollable-page {
+            max-height: 78vh;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+
+        .scrollable-page::-webkit-scrollbar {
+            width: 5px;
+        }
+        .scrollable-page::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.4);
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div id="lock-screen">
-            <div class="lock-icon">❤️</div>
-            <h2>اكتبي اول يوم اتكلمنا فيه ❤✨</h2>
-            <input type="password" id="password-input" placeholder="اليوم/الشهر/السنة">
-            <button class="btn-main" onclick="checkPassword()">🔓 افتحي الذكريات</button>
-            <div class="error-msg" id="error-message">التاريخ مش صح، حاولي تاني يا شهد! 🥰✨</div>
+    <!-- خلفية الحروف والقلوب المتحركة -->
+    <div class="bg-particles" id="particles"></div>
+
+    <div class="container" id="mainContainer">
+
+        <!-- الصفحة الأولى: الباسورد والترحيب -->
+        <div class="page active" id="page1">
+            <h1 class="shiny-text">A simple gift, I hope you like it! 😂❤️</h1>
+            <p class="subtitle">The birthday of the soul of my heart ❤️ (05/07/2009)</p>
+            <p style="margin-bottom: 15px; font-style: italic;">Please enter the password to open your gift:</p>
+            <input type="password" id="passInput" placeholder="Enter Password (DD/MM/YYYY)">
+            <br>
+            <button class="btn" onclick="checkPassword()">Open Heart ❤️</button>
+            <p class="error-msg" id="errorMsg">Incorrect password, try again my love!</p>
         </div>
 
-        <div id="main-content">
-            <div class="welcome-card">
-                <h1>عايز أقولك إني بحبك ❤️</h1>
-                <p>كل حاجة في حياتي بقت أجمل معاكي يا شهد، ربنا يخليكي ليا يا حبيبتي وميحرمنيش منك أبداً ويجعل أيامنا كلها سعادة مع بعض.. بحبك كدة مع بعض ✨</p>
+        <!-- الصفحة الثانية: رسالة الاعتذار + الأغنية -->
+        <div class="page scrollable-page" id="page2">
+            <h2 class="shiny-text" style="font-size: 1.7rem;">I'm So Sorry...</h2>
+            <div class="frame-box">
+                <p>
+                    انا اسف بجد على كل فعل وحش عملته فحقك انتي متستاهليش مني غير كل حلو و كل حاجه كويسه متزعليش مني انا بجد مش بكون قاصد ازعلك انا كل ده بيبقى من خوفي عليكي وعلى شكلك مش أكتر لان شكلك من شكلي وانا بتعامل ب المبدأ ده اننا واحد ديما بجد انا كل شويه ازعلك وانا مضايق مني و انا بجد بحاول معملش كده وهحاول ومش هبطل احاول، نفسي بجد بس تفهمي اني مش ببقى قاصد ازعلك انا بس ببقى علطول بفكر ازاي تبقى كويسه وف امان ممكن اكون زودتها حبتين بس ربنا يعلم بنيتي بس كده فالاخر احب اقولك انا اسف يا احلى دودي فالدنيا عن كل حاجه وحشه عملتها ف حقك<br><br>
+                    <b style="font-size: 1.15rem; color: #ffe6e6;">بحبك ❤️</b>
+                </p>
             </div>
-
-            <div class="section-header">صورة انا بحبها ♥✨</div>
-            <div class="memory-card">
-                <img src="shahd.jpg" alt="شهد">
-            </div>
-
-            <div class="section-header">صورة انتي بتحبيها ❤✨</div>
-            <div class="memory-card">
-                <img src="me.jpg" alt="أنا">
-            </div>
-
-            <div class="section-header">اغنية حبناها سوا ❤✨</div>
-            <div class="music-card">
-                <div class="music-info">🎵 شيرين - حبه جنة</div>
-                <audio id="bg-music" controls loop>
-                    <source src="sherine.mp3" type="audio/mpeg">
+            
+            <!-- مشغل الأغنية: مع الأيام - رامي صبري -->
+            <div style="margin: 12px 0; width: 100%;">
+                <p style="font-size: 0.95rem; margin-bottom: 5px; font-style: italic; text-align: center;">🎵 Our Song: Ma El Ayyam - Ramy Sabry</p>
+                <audio id="myAudio" controls loop style="width: 100%; border-radius: 20px;">
+                    <source src="https://cdns-preview--d.dzcdn.net/stream/c-deda733cd8201a73950ee0b9df45b6ad-3.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
                 </audio>
             </div>
 
-            <div class="heart-btn-container">
-                <button class="btn-main" onclick="openModal()">كلمه ليكي من قلبي ♥✨</button>
-            </div>
+            <button class="btn" style="margin-top: 5px;" onclick="nextPage()">Our Memories & Timeline ✨</button>
         </div>
-    </div>
 
-    <div class="modal" id="love-modal">
-        <div class="modal-content">
-            <div class="modal-text">
-                بصي أنا عارف اننا قولنا هناخد بريك شويه وده احسن ومستريحين وبتاع بس أنا مش مرتاح ومظنش انك هتبقي مرتاحه واحنا كلها كام يوم وهنبقا ثانويه عامه ف مش هنضيع الوقت ده ف الزعل وعموما أنا الفتره ده نسيت فيها كل حاجه أتمنى تكوني انت كمان وده مفاجأة بسيط اراضيكي بيها وكده كده ولا أنا هعرف اعيش من غيرك ولا انت والعبط بتاعنا ده محدش هيستحمله غيرنا وبصراحه ببقا خايف عليكي ونت بعيده عني ومبقتش ضامن اي حاجه والوقت بيعدي وهنندم عليه المهم متزعليش وواحشاني اكتر 🥹🫶🏼 ✨♥
+        <!-- الصفحة الثالثة: التواريخ والصورة وستوديو الذكريات -->
+        <div class="page scrollable-page" id="page3">
+            <h2 class="shiny-text" style="font-size: 1.6rem;">Our Story Together</h2>
+            
+            <div class="frame-box">
+                <p style="text-align: center;">💬 First time we talked:<br><b>17 / 10 / 2025</b></p>
             </div>
-            <span class="glowing-love">بحبكككك فشخخخخ ❤️✨</span>
-            <button class="close-btn" onclick="closeModal()">إغلاق ❤️</button>
+
+            <div class="frame-box">
+                <p style="text-align: center;">💖 First time I told you I love you:<br><b>29 / 7 / 2026</b></p>
+            </div>
+
+            <div class="frame-box">
+                <p style="text-align: center;">💍 The day we truly became together:<br><b>21 / 10 / 2026</b></p>
+            </div>
+
+            <div class="frame-box">
+                <p style="text-align: center; margin-bottom: 5px;">My favorite picture of you:</p>
+                <img src="dody.jpg" alt="My Love Dody" class="memory-img" id="userFavImg">
+            </div>
+
+            <button class="btn" style="margin-top: 15px; margin-bottom: 10px;" onclick="nextPage()">Final Words 💌</button>
         </div>
+
+        <!-- الصفحة الرابعة والأخيرة: رسالة الحب بالكامل بصوتك وتعبيراتك -->
+        <div class="page scrollable-page" id="page4">
+            <h2 class="shiny-text" style="font-size: 1.8rem;">Forever & Always ❤️</h2>
+            <div class="frame-box" style="padding: 22px;">
+                <p style="font-size: 1.05rem; line-height: 1.7; text-align: right;">
+                    مفكره اني خلصت كلام عليكي لا طبعا لسه بدري ♥️😂، عايز اقولك اني بجد بحبك اوي اوي اوي وبجد عمري م هلاقي حد يفهمني زيك ولا يفهم هزاري الرخم غيرك 😂، ولا حد ف حنيتك ولا رقتك ولا انوثتك😉، بجد بحبك بكل تفاصيلك كل تفصيله فيكي بحبها، نفسي بجد يجمعنا بيت واحد ونبقى عيله سوا وولادنا يبقوا حنيين زيك كده..
+                    <br><br>
+                    عدينا مع بعض حاجات كتير اوي ومواقف صعبه اكتر وان شاء الله مفيش مشكله هنقف عندها ونقول خلاص، لا هنحل كل حاجه بهدوء وبراحه.. انا بجد يا جودي اكتر حاجه بتمناها الايام الي فاتت دي اني اشوفك مبسوطه واحسسك بالامان وانك مش في مشاكل واننا كويسين والحمد لله بقينا دلوقتي من غير مشاكل وبقينا مع بعض ولبعض، وانا بجد مهما حصل بينا مش هسيبك تضيعي من ايدي انتي بتاعتي بس خط احمر 😂✋!
+                    <br><br>
+                    والله يبنتي وبحلف اهو عمري فحياتي محبيت حد كده ولا اتعلقت بيه كده ولا حد وثقت فيه بالشكل ده وكان قد الثقه، ولا حد بيقدر زيك الظروف الي انا فيها الي انتي ملكيش فيها اي ذنب اصلا.. اخر حاجه عايز اقولك انا بحبك وبعشقككك ومش هبطل ف يوم احبك بالعكس حبي هيزيد اكتر واكتر وعمري مهحب بنت قدك لانك مكفياني وشايفك احلى بنت فالدنيا وانتي كده اصلا..
+                    <br><br>
+                    <b style="font-size: 1.2rem; color: #ffe6e6; display: block; text-align: center;">بحبك يمزتي ❤️✨</b>
+                </p>
+            </div>
+            <button class="btn" style="margin-top: 20px;" onclick="resetApp()">Start Over 🔄</button>
+        </div>
+
     </div>
 
     <script>
-        function createHearts() {
-            const heartsContainer = document.body;
-            const heartSymbols = ['❤️', '💖', '💗', '💓', '💕'];
-            setInterval(() => {
-                const heart = document.createElement('div');
-                heart.classList.add('heart-falling');
-                heart.innerText = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDuration = Math.random() * 3 + 3 + 's';
-                heart.style.fontSize = Math.random() * 15 + 15 + 'px';
-                heartsContainer.appendChild(heart);
-                setTimeout(() => { heart.remove(); }, 6000);
-            }, 400);
+        // إنشاء خلفية متحركة تحتوي على حرف J وقلوب صغيرة متفرقة
+        const particlesContainer = document.getElementById('particles');
+        const symbols = ['J ❤️', '❤️ J', 'J ✨', '💖', 'J'];
+        
+        for (let i = 0; i < 35; i++) {
+            const span = document.createElement('span');
+            span.className = 'particle';
+            span.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+            span.style.left = Math.random() * 100 + 'vw';
+            span.style.top = Math.random() * 100 + 'vh';
+            span.style.fontSize = (Math.random() * 14 + 14) + 'px';
+            span.style.animationDuration = (Math.random() * 6 + 6) + 's';
+            span.style.animationDelay = (Math.random() * 5) + 's';
+            particlesContainer.appendChild(span);
         }
-        createHearts();
 
+        let currentPage = 1;
+        const totalPages = 4;
+
+        // التحقق من الباسورد (5/7/2009 أو ما يشابهها)
         function checkPassword() {
-            const passwordInput = document.getElementById('password-input').value;
-            const errorMessage = document.getElementById('error-message');
-            const lockScreen = document.getElementById('lock-screen');
-            const mainContent = document.getElementById('main-content');
-            const audio = document.getElementById('bg-music');
-
-            if (passwordInput === "162023") {
-                lockScreen.style.display = "none";
-                mainContent.style.display = "block";
-                document.body.style.alignItems = "flex-start";
-                audio.play().catch(err => console.log("Audio ready"));
+            const passInput = document.getElementById('passInput').value.trim();
+            const errorMsg = document.getElementById('errorMsg');
+            
+            if (passInput === '5/7/2009' || passInput === '05/07/2009' || passInput === '5-7-2009' || passInput === '05-07-2009') {
+                errorMsg.style.display = 'none';
+                nextPage();
+                const audio = document.getElementById('myAudio');
+                audio.play().catch(e => console.log("Audio autoplay restricted by browser"));
             } else {
-                errorMessage.style.display = "block";
-                document.getElementById('password-input').value = "";
+                errorMsg.style.display = 'block';
             }
         }
-        function openModal() { document.getElementById('love-modal').style.display = 'flex'; }
-        function closeModal() { document.getElementById('love-modal').style.display = 'none'; }
+
+        // انيميشن تقليب الورق والانتقال للصفحة التالية
+        function nextPage() {
+            const container = document.getElementById('mainContainer');
+            
+            container.style.transform = 'rotateY(90deg) scale(0.9)';
+            container.style.opacity = '0';
+
+            setTimeout(() => {
+                document.getElementById(`page${currentPage}`).classList.remove('active');
+                currentPage++;
+                if (currentPage > totalPages) currentPage = 1;
+                
+                document.getElementById(`page${currentPage}`).classList.add('active');
+                
+                container.style.transform = 'rotateY(0deg) scale(1)';
+                container.style.opacity = '1';
+            }, 400);
+        }
+
+        function resetApp() {
+            const container = document.getElementById('mainContainer');
+            container.style.transform = 'rotateY(90deg) scale(0.9)';
+            container.style.opacity = '0';
+
+            setTimeout(() => {
+                document.getElementById(`page${currentPage}`).classList.remove('active');
+                currentPage = 1;
+                document.getElementById(`page${currentPage}`).classList.add('active');
+                document.getElementById('passInput').value = '';
+                
+                container.style.transform = 'rotateY(0deg) scale(1)';
+                container.style.opacity = '1';
+            }, 400);
+        }
     </script>
 </body>
 </html>
